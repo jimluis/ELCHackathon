@@ -37,7 +37,7 @@ public class Controller
 //		return user;
 //	}
 	
-	@PostMapping("/item/")
+	@PostMapping("/item")
 	public ItemDAO saveUser(@RequestBody ItemDAO item)
 	{
 //		log.debug("Controller.getUser - userId: "+userId);
