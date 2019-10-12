@@ -13,6 +13,7 @@ public class UserPreferencesDAO
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long userPreferenceId;
+	private long userId;
 	private String skinTone;
 	private String coverage;
 	private String form;
@@ -47,6 +48,12 @@ public class UserPreferencesDAO
 	}
 	public void setSkingAlergies(String skingAlergies) {
 		this.skingAlergies = skingAlergies;
+	}
+	public long getUserId() {
+		return userId;
+	}
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 	
 	

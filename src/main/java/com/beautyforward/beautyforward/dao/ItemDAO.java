@@ -8,13 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "item")
 public class ItemDAO 
 {
 	@Id
 	@Column(name = "itemId")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long itemId;
+	
+	@Column(name = "userId")
+	private String userId;
 	
 	@Column(name = "title")
 	private String title;
@@ -75,6 +78,12 @@ public class ItemDAO
 	}
 	public void setShade(String shade) {
 		this.shade = shade;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	
 	
