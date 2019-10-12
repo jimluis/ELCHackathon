@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.beautyforward.beautyforward.dao.IRepoService;
 import com.beautyforward.beautyforward.dao.IRepositoryDAO;
 import com.beautyforward.beautyforward.dao.ItemDAO;
 import com.beautyforward.beautyforward.dao.RepositoryImp;
-import com.beautyforward.beautyforward.dao.UserDAO;
 
 @RestController
 public class Controller 
@@ -24,7 +24,7 @@ public class Controller
 //	private static final Logger log = LoggerFactory.getLogger(Controller.class);
 	
 	@Autowired
-	private RepositoryImp repo;
+	private IRepositoryDAO repo;
 	
 	
 //	@PostMapping("/user/")
@@ -37,35 +37,65 @@ public class Controller
 //		return user;
 //	}
 	
+	@GetMapping("/test")
+	public String getItem()
+	{
+//		log.debug("Controller.getUser - userId: "+userId);
+		System.out.println("Getting items");
+//		 ItemDAO user = repo.getItem(itemId);
+		 
+		return "Test";
+	}
+	
 	@PostMapping("/item")
 	public ItemDAO saveUser(@RequestBody ItemDAO item)
 	{
 //		log.debug("Controller.getUser - userId: "+userId);
+		System.out.println("Getting item");
 		
-		 repo.saveItem(item);
+		 repo.save(item);
 		 
 		return null;
+		
 	}
+	
+	
 	
 	@GetMapping("/item/{itemId}")
 	public ItemDAO getItem(@PathVariable(name = "itemId") Long itemId)
 	{
 //		log.debug("Controller.getUser - userId: "+userId);
-		
-		 ItemDAO user = repo.getItem(itemId);
+		System.out.println("Getting items");
+		 Optional<ItemDAO> users = repo.findById(itemId);
+		 ItemDAO user = users.get();
 		 
+		// user = repo.findById(itemId).orElse(new ItemDAO());
 		return user;
 	}
 	
-	@GetMapping("/items/{itemId}")
-	public List<ItemDAO> getItems(@PathVariable(name = "itemId") Long itemId)
+
+	@GetMapping("/items")
+	public List<ItemDAO> getUser()
 	{
 //		log.debug("Controller.getUser - userId: "+userId);
 		
-		List<ItemDAO>  itemList = repo.getAllItemList();
+//		 List<UserDAO> userss = repo.findAll();
+//		 UserDAO user = users.get();
 		 
-		return itemList;
+		
+		return repo.findAll();
 	}
+	
+	
+//	@GetMapping("/items/{userId}")
+//	public List<ItemDAO> getItems(@PathVariable(name = "itemId") Long userId)
+//	{
+////		log.debug("Controller.getUser - userId: "+userId);
+//		
+//		List<ItemDAO>  itemList = repo.findAllById(userId);
+//		 
+//		return itemList;
+//	}
 	
 //	@GetMapping("/user/{userId}")
 //	public UserDAO getUser(@PathVariable(name = "userId") Long userId)
@@ -78,27 +108,8 @@ public class Controller
 //		return user;
 //	}
 	
-//	@GetMapping("/user/items")
-//	public List<UserDAO> getUser()
-//	{
-////		log.debug("Controller.getUser - userId: "+userId);
-//		
-////		 List<UserDAO> userss = repo.findAll();
-////		 UserDAO user = users.get();
-//		 
-//		
-//		return (List<UserDAO>) repo.findAll();
-//	}
+
 	
-	
-	
-	@GetMapping("/")
-	public String getTest()
-	{
-//		UserDAO user;
-//		user = repo.getUser(userId)  ;
-		return "Test";
-	}
-	
+
 
 }
