@@ -11,14 +11,22 @@ import com.beautyforward.beautyforward.dao.UserDAO;
 @RestController
 public class Controller 
 {
-	@Autowired
-	private RepositoryDAO repo;
+//	@Autowired
+//	private RepositoryDAO repo;
 	
-	@GetMapping("/user/{userId}")
-	public UserDAO getUser(@PathVariable(name = "userId") long userId)
+//	@GetMapping("/user/{userId}")
+//	public UserDAO getUser(@PathVariable(name = "userId") long userId)
+//	{
+//		UserDAO user;
+//		user = repo.getUser(userId);
+//		return user;
+//	}
+	
+	@GetMapping("/")
+	public String getTest()
 	{
-		UserDAO user;
-		user = repo.getUser(userId);
-		return user;
+//		UserDAO user;
+//		user = repo.getUser(userId)  ;
+		return "Test";
 	}
 }

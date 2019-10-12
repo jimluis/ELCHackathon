@@ -25,7 +25,7 @@ public class Utilities
     	return instance;
     }
     
-	private void initDbConnection()
+	public void initDbConnection()
 	{
 		try 
 		{
