@@ -1,19 +1,41 @@
 package com.beautyforward.beautyforward.dao;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class ItemDAO 
 {
-	private long itemId;
+	@Id
+	@Column(name = "itemId")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long itemId;
+	
+	@Column(name = "title")
 	private String title;
+	
+	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "color")
 	private String color;
+	
+	@Column(name = "productCategory")
 	private String productCategory;
+	
+	@Column(name = "colorSwatch")
 	private String colorSwatch;
+	
+	@Column(name = "shade")
 	private String shade;
 	
-	public long getItemId() {
+	public Long getItemId() {
 		return itemId;
 	}
-	public void setItemId(long itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 	public String getTitle() {

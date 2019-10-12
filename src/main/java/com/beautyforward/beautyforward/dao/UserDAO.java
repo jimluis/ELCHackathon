@@ -1,17 +1,35 @@
 package com.beautyforward.beautyforward.dao;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class UserDAO 
 {
-	private long userId;
-	private long loginId;
+	@Id
+	@Column(name = "userId")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long userId;
+	
+	@Column(name = "loginId")
+	private Long loginId;
+	
+	@Column(name = "userName")
 	private String userName;
+	
+	@Column(name = "profilePicLink")
 	private String profilePicLink;
+	
+	@Column(name = "userPreferenceId")
 	private long userPreferenceId;
 	
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
@@ -26,10 +44,10 @@ public class UserDAO
 	public void setProfilePicLink(String profilePicLink) {
 		this.profilePicLink = profilePicLink;
 	}
-	public long getLoginId() {
+	public Long getLoginId() {
 		return loginId;
 	}
-	public void setLoginId(long loginId) {
+	public void setLoginId(Long loginId) {
 		this.loginId = loginId;
 	}
 	public long getUserPreferenceId() {
