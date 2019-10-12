@@ -11,157 +11,41 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
-public class RepositoryImp implements IRepositoryDAO
+public class RepositoryImp implements IRepoService
 {
 
 	@Autowired
 	private IRepositoryDAO repo;
+
+	@Override
+	public ItemDAO saveItem(ItemDAO item) {
+		repo.save(item);
+		return null;
+	}
+
+	@Override
+	public ItemDAO updateItem(ItemDAO employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ItemDAO> getAllItemList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ItemDAO getItem(Long itemId) 
+	{
+		repo.findById(itemId);
+		return null;
+	}
+
+
 	
-	@Override
-	public List<UserDAO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public List<UserDAO> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<UserDAO> findAllById(Iterable<Long> ids) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserDAO> List<S> saveAll(Iterable<S> entities) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void flush() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public <S extends UserDAO> S saveAndFlush(S entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void deleteInBatch(Iterable<UserDAO> entities) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAllInBatch() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public UserDAO getOne(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserDAO> List<S> findAll(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserDAO> List<S> findAll(Example<S> example, Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Page<UserDAO> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserDAO> S save(S entity) {
-		repo.save(entity);
-		return null;
-	}
-
-	@Override
-	public Optional<UserDAO> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean existsById(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(UserDAO entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll(Iterable<? extends UserDAO> entities) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public <S extends UserDAO> Optional<S> findOne(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserDAO> Page<S> findAll(Example<S> example, Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserDAO> long count(Example<S> example) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public <S extends UserDAO> boolean exists(Example<S> example) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
 
